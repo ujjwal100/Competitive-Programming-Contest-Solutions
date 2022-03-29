@@ -29,13 +29,7 @@ public class Main {
             }
             arr.add(new S(s, c));
         }
-        arr.sort((S a, S b) -> {
-            long zeros1 = m - a.ones;
-            long zeros2 = m - b.ones;
-
-            return Long.compare(zeros2 * a.ones, zeros1 * b.ones);
-
-        });
+        arr.sort(Comparator.comparingLong((S a) -> a.ones));
         long ans =0;
         long b=0;
         for(S str : arr){
