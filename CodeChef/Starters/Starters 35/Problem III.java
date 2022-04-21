@@ -29,35 +29,21 @@ public class Main {
             else out.print(odd[n-1]-1 + "\n");
         } else {
             long ans = n;
-            boolean v=true;
-            long val;
             for (int i=0; i < n; i++) {
                 if (a[n-1]%2==0) {
-                    if (a[i]%2==0) {
-
-                        int j = i-1;
-                        for (j = i-1; j >=0 && a[j]%2==1 ; j--);
-                        if (j<i-1) {
-                            val = odd[j+1];
-                            ans = Math.min(ans, val + (even[n-1] - even[i]));
-                        }
-
+                    if (a[i]%2==1) {
+                        ans = Math.min(ans, odd[i] - 1 + (even[n-1] - even[i]));
                     }
                 } else {
-                    if (a[i]%2==1) {
-
-                        int j = i-1;
-                        for (j = i-1; j >=0 && a[j]%2==0 ; j--);
-                        if (j<i-1) {
-                            val = even[j+1];
-                            ans = Math.min(ans, val + (odd[n-1] - odd[i]));
-                        }
+                    if (a[i]%2==0) {
+                        ans = Math.min(ans, even[i] - 1 + (odd[n-1] - odd[i]));
                     }
                 }
             }
 
             out.print(ans + "\n");
         }
+
     }
 
 
